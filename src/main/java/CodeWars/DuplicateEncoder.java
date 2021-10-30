@@ -1,8 +1,6 @@
 package CodeWars;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Цель этого упражнения - преобразовать строку в новую строку, где каждый символ в новой строке равен '(',
@@ -13,27 +11,31 @@ import java.util.List;
 public class DuplicateEncoder {
     public static void main(String[] args) {
         String str = "dfsdfgdhghsdfseffbvb";
-        encode(str);
+        System.out.println(encode(str));
 
     }
 
     static String encode(String word) {
 
-        List<Character> characters = new ArrayList<>(word.charAt(0));
+        Map<Character, Integer> map = new HashMap<>();
+        word = word.toLowerCase();
 
-        for (int i = 0; i < characters.size(); i++) {
-            char ch = characters.get(i);
-            for (int j = 1; j < characters.size(); j++) {
-                if (ch == characters.get(j)) {
-                    characters.set(i, ')');
-                }else {
-                    characters.set(i, '(');
-                }
+        for (int i = 0; i < word.length(); i++) {
+            if (map.containsKey(word.charAt(i))) {
+                int value = map.get(word.charAt(i));
+                map.remove(word.charAt(i));
+                map.put(word.charAt(i), ++value);
+            } else {
+                map.put(word.charAt(i), 1);
             }
         }
-        Character[] chr = (Character[]) characters.toArray();
-        word = (String.valueOf(chr));
 
-        return word;
+        String output = "";
+
+        for (int i = 0; i < word.length(); i++) {
+            output += (map.get(word.charAt(i)) > 1) ? ")" : "(";
+        }
+
+        return output;
     }
 }
