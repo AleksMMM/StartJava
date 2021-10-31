@@ -8,6 +8,7 @@ public class Calculator {
 
         int first = 10;
         int second = 5;
+        int step = 3;
         char[] chars = new char[6];
         chars[0] = '+';
         chars[1] = '-';
@@ -56,7 +57,11 @@ public class Calculator {
         return one + two;
     }
 
-    public int step(int one) {
+    public int step(int one, int step) {
+        for (int i = 0; i <= step; i++) {
+            one = one * one;
+        }
+
         return umn(one, one);
     }
 
