@@ -5,16 +5,16 @@ public class Cycle {
         }
         System.out.println();
 
-        int count = 6;
-        while (count >= -6) {
-            System.out.println(count);
-            count =count -2;
+        int counter = 6;
+        while (counter >= -6) {
+            System.out.println(counter);
+            counter -= 2;
         }
         System.out.println();
 
         int one = 10;
         do {
-            one = one + 1;
+            one++;
             if (!((one % 2) == 0)) {
                 System.out.println(one);
             }

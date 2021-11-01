@@ -4,23 +4,24 @@ import java.lang.Math;
 public class GuessNumber {
 
     public static void main(String[] args) {
-        int UnknownNumber, UserNumber, TrysCount = 0;
+        int unknownNumber, userNumber, trysCount = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("ЗАДАЧА: Угадать число (от 0 до 100).");
-        UnknownNumber = (int)Math.floor(Math.random() * 100);
+        unknownNumber = (int) Math.floor(Math.random() * 100);
         do {
-            TrysCount++;
+            trysCount++;
             System.out.print("Введите ваше число: ");
-            UserNumber = input.nextInt();
-            if (UserNumber > UnknownNumber) {
+            userNumber = input.nextInt();
+            if (userNumber > unknownNumber) {
                 System.out.println("Данное число больше того, что загадал компьютер");
-            } else if (UserNumber < UnknownNumber) {
+            } else if (userNumber < unknownNumber) {
                 System.out.println("Данное число меньше того, что загадал компьютер");
-            } else {
-                    System.out.println("Поздравляю, число угадано!");
-                }
-            } while (UserNumber != UnknownNumber);
-            System.out.println("Количество попыток: " + TrysCount);
+            }
+
+            } while (userNumber != unknownNumber);
+
+            System.out.println("Поздравляю, число угадано!");
+            System.out.println("Количество попыток: " + trysCount);
         }
     }
 
