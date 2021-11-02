@@ -10,7 +10,7 @@ public class ConditionalStatement {
             System.out.println("man");
         }
 
-        if (!(sex)) {
+        if (!sex) {
             System.out.println("woman");
         }
 
@@ -21,10 +21,10 @@ public class ConditionalStatement {
             System.out.println(height);
         }
 
-        char firstChar = 'M';
-        if (firstChar == 'M') {
-            System.out.println(firstChar);
-        } else if(firstChar == 'I') {
+        char firstLetterName = 'M';
+        if (firstLetterName == 'M') {
+            System.out.println(firstLetterName);
+        } else if(firstLetterName == 'I') {
             System.out.println("first I");
         } else {
             System.out.println("no");

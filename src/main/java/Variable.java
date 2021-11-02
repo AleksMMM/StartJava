@@ -1,21 +1,21 @@
 public class Variable {
     public static void main(String[] args) {
-        byte bytes = 100;
-        short shortes = 234;
-        int intes = 1000;
-        long lones = 10000L;
+        byte cpu = 4;
+        short crudes = 234;
+        int memory = 32;
+        long ssd = 1000L;
         float f = 10f;
-        double doub = 10.00;
-        char ch = 'r';
-        boolean bol = true;
+        double hdd = 10.00;
+        char processor = 'r';
+        boolean on = true;
 
-        System.out.println(bytes);
-        System.out.println(shortes);
-        System.out.println(intes);
+        System.out.println(cpu);
+        System.out.println(crudes);
+        System.out.println(memory);
         System.out.println(f);
-        System.out.println(doub);
-        System.out.println(ch);
-        System.out.println(bol);
-        System.out.println(lones);
+        System.out.println(hdd);
+        System.out.println(processor);
+        System.out.println(on);
+        System.out.println(ssd);
     }
 }
