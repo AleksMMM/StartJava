@@ -16,6 +16,10 @@ public class Wolf {
         this.color = color;
     }
 
+    public Wolf() {
+
+    }
+
     public void go() {
         System.out.println(name + " идет");
     }
@@ -61,11 +65,21 @@ public class Wolf {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 8) {
+            System.out.println("неккоректный возраст");
+
+        }else {
+            this.age = age;
+        }
+
     }
 
     public String getColor() {
         return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
