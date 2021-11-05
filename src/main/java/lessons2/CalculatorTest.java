@@ -9,10 +9,6 @@ public class CalculatorTest {
         Scanner scanner = new Scanner(System.in);
         String str = "";
 
-
-
-
-
         do {
             System.out.println("Введите первое число:");
             int one = scanner.nextInt();
@@ -36,8 +32,6 @@ public class CalculatorTest {
 
                 }
             }
-
-
 
         }while (str.equals("yes"));
     }
