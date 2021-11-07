@@ -9,11 +9,11 @@ public class Person {
     private int age;
 
     public Person(char sex, String name, int heigth, int weight, int age) {
-        this.sex = 'm';
-        this.name = "Ivan";
-        this.heigth = 179;
-        this.weight = 78;
-        this.age = 34;
+        this.sex = sex;
+        this.name = name;
+        this.heigth = heigth;
+        this.weight = weight;
+        this.age = age;
     }
 
     public void seat() {
@@ -35,6 +35,5 @@ public class Person {
     public void teachJava() {
         System.out.println("человек учит Джава");
     }
-
 
 }

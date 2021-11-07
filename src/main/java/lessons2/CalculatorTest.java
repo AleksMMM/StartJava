@@ -7,32 +7,29 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
-        String str = "";
+        String yesOrNo = "";
 
         do {
             System.out.println("Введите первое число:");
-            int one = scanner.nextInt();
+            int firstNumber = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Введите знак математической операции:");
-            char ch = scanner.next().charAt(0);
+            char numberOperation = scanner.next().charAt(0);
             System.out.println("Введите второе число:");
-            int two =  scanner.nextInt();
+            int secondNumber =  scanner.nextInt();
             scanner.nextLine();
-            System.out.println(calculator.swithMethod(ch, one, two));
+            System.out.println(calculator.calculate(numberOperation, firstNumber, secondNumber));
             System.out.println("Хотите продолжить вычисления? [yes/no]:");
-            str = scanner.nextLine();
-            boolean bool = true;
-            while (bool) {
-                if ( str.equals("no") | str.equals("yes")) {
-                    bool = false;
-
-                }else {
+            yesOrNo = scanner.nextLine();
+            boolean yesNoCheck = true;
+            while (yesNoCheck) {
+                if (yesOrNo.equals("no") || yesOrNo.equals("yes")) {
+                    yesNoCheck = false;
+                } else {
                     System.out.println("введите yes no");
-                    str = scanner.nextLine();
-
+                    yesOrNo = scanner.nextLine();
                 }
             }
-
-        }while (str.equals("yes"));
+        } while(yesOrNo.equals("yes"));
     }
 }

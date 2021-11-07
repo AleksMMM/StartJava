@@ -28,7 +28,7 @@ public class Wolf {
         System.out.println(name + " бежит");
     }
 
-    public void voice() {
+    public void hovl() {
         System.out.println(name + " воет");
     }
 
@@ -66,12 +66,10 @@ public class Wolf {
 
     public void setAge(int age) {
         if (age > 8) {
-            System.out.println("неккоректный возраст");
-
-        }else {
+            System.out.println("некорректный возраст");
+        } else {
             this.age = age;
         }
-
     }
 
     public String getColor() {

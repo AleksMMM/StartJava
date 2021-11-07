@@ -1,3 +1,5 @@
+package lessons1;
+
 public class Uniсode {
 
     public static void main(String[] args) {
