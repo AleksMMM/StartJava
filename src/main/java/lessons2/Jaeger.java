@@ -1,5 +1,7 @@
 package lessons2;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Jaeger {
 
     private String name;

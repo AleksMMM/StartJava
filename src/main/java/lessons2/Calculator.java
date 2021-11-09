@@ -2,53 +2,49 @@ package lessons2;
 
 public class Calculator {
 
-    public Number calculate(char ch, int one, int two) {
-        switch (ch) {
-            case   '+' :
-                return plus(one, two);
+    public Number calculate(char mathSign, int firstNumber, int secondNumber) {
+        switch (mathSign) {
+            case '+' :
+                return plus(firstNumber, secondNumber);
             case '/' :
-                return division(one, two);
+                return division(firstNumber, secondNumber);
             case '*' :
-                return multiplication(one, two);
+                return multiplication(firstNumber, secondNumber);
             case '-' :
-                return subtraction(one, two);
+                return subtraction(firstNumber, secondNumber);
             case '^' :
-                return exponentiation(one, two);
+                return exponentiation(firstNumber, secondNumber);
             case '%' :
-                return remainderDivision(one, two);
+                return remainderDivision(firstNumber, secondNumber);
             }
             return null;
 
         }
 
-    public int plus(int one, int two) {
-        return one + two;
+    public int plus(int firstNumber, int secondNumber) {
+        return firstNumber + secondNumber;
     }
 
-    public double division(int one, int two) {
-        return one / two;
+    public double division(int firstNumber, int secondNumber) {
+        return firstNumber / secondNumber;
     }
 
-    public static int multiplication(int one, int two) {
-        return one * two;
+    public static int multiplication(int firstNumber, int secondNumber) {
+        return firstNumber * secondNumber;
     }
 
-    public static int subtraction(int one, int two) {
-        return one - two;
+    public static int subtraction(int firstNumber, int secondNumber) {
+        return firstNumber - secondNumber;
     }
 
-    public int exponentiation(int one, int step) {
+    public int exponentiation(int firstNumber, int step) {
         for (int i = 0; i <= step; i++) {
-            one = one * one;
+            firstNumber = firstNumber * firstNumber;
         }
-
-        return multiplication(one, one);
+        return firstNumber;
     }
 
-    public int remainderDivision(int one, int two) {
-        return one % two;
+    public int remainderDivision(int firstNumber, int secondNumber) {
+        return firstNumber % secondNumber;
     }
-
-
-
 }
