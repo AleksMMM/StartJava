@@ -1,38 +1,31 @@
 package lessons2;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    static NumberGues numberGues = new NumberGues();
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Player player1 = new Player(scanner.nextLine());
-        Player player2 = new Player(scanner.nextLine());
-        Player[] players = new Player[2];
-
-
-        Random generator = new Random();
-        int random = generator.nextInt(100) + 1;
-
-        player1.setNumberPlayer(scanner.nextInt());
-        player2.setNumberPlayer(scanner.nextInt());
-        String answer = scanner.nextLine();
-
-
-        numberGues.tooHighTooLow(random, players);
-
+        System.out.println("введите имена игроков");
+        Player player1 = new Player(new Scanner(System.in).nextLine());
+        Player player2 = new Player(new Scanner(System.in).nextLine());
+        NumberGuess numberGuess = new NumberGuess();
+        numberGuess.games(player1, player2);
+        continueGame(player1, player2);
 
     }
 
-    public void nextGame(String anwesr) {
-        if (anwesr.equals("yes")) {
-            Random generator = new Random();
-            int random = generator.nextInt(100) + 1;
-            numberGues.tooHighTooLow(random, );
-        }
-
+    public static void continueGame(Player player1, Player player2) {
+        String answer = "";
+        do {
+        System.out.println("Хотите продолжить игру? [yes/no]:");
+        answer = new Scanner(System.in).nextLine();
+            if (answer.equals("yes")) {
+                new NumberGuess().games(player1,player2);
+            }else if (answer.equals("no")) {
+                break;
+            }
+        } while(!answer.equals("yes") || !answer.equals("no"));
 
     }
+
 }
+
