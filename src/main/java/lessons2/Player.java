@@ -1,19 +1,15 @@
 package lessons2;
 
 public class Player {
-    private String firstname;
+    private String firstName;
     private int numberPlayer;
 
     public Player(String name) {
-        firstname = name;
+        firstName = name;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String name) {
-        firstname = name;
+    public String getFirstName() {
+        return firstName;
     }
 
     public int getNumberPlayer() {
