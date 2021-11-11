@@ -21,9 +21,7 @@ public class CalculatorTest {
             System.out.println(calculator.calculate(mathSign, firstNumber, secondNumber));
             System.out.println("Хотите продолжить вычисления? [yes/no]:");
             yesOrNo = scanner.nextLine();
-            boolean yesNoCheck = true;
-            while (yesOrNo.equals("no") || yesOrNo.equals("yes")) {
-
+            while (!yesOrNo.equals("no") || !yesOrNo.equals("yes")) {
                 System.out.println("введите yes no");
                 yesOrNo = scanner.nextLine();
             }
