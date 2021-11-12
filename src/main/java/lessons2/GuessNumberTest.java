@@ -3,15 +3,25 @@ package lessons2;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    Player firstPlayer;
+    Player secondPlayer;
     static Scanner scanner = new Scanner(System.in);
     static GuessNumber numberGuess = new GuessNumber();
+    static String namePlayerFirst;
+    static String namePlayerSecond;
+
+    public GuessNumberTest(String namePlayerFirst, String namePlayerSecond) {
+        firstPlayer = new Player(namePlayerFirst);
+        this.secondPlayer = new Player(namePlayerSecond);
+    }
 
     public static void main(String[] args) {
         System.out.println("введите имена игроков");
-        Player player1 = new Player(scanner.nextLine());
-        Player player2 = new Player(scanner.nextLine());
-        numberGuess.play(player1, player2);
-        continueGame(player1, player2);
+        namePlayerFirst = scanner.nextLine();
+        namePlayerSecond = scanner.nextLine();
+        GuessNumberTest guessNumberTest = new GuessNumberTest(namePlayerFirst, namePlayerSecond);
+        numberGuess.play(guessNumberTest.firstPlayer, guessNumberTest.secondPlayer);
+        continueGame(guessNumberTest.firstPlayer, guessNumberTest.secondPlayer);
 
     }
 
