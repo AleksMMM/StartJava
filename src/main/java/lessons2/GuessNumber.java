@@ -4,46 +4,69 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
-    static int firstPlayer;
-    static int secondPlayer;
+    Player firstPlayer;
+    Player secondPlayer;
     static int numberRandom;
 
-    public void play(Player player1, Player player2) {
-        Scanner s = new Scanner(System.in);
+    public GuessNumber(Player firstPlayer, Player secondPlayer) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
+    }
+
+    public GuessNumber() {
+
+    }
+
+    Scanner s = new Scanner(System.in);
+
+    public void play() {
         numberRandom = (int)(Math.random()*100);
         System.out.println(numberRandom);
-
         System.out.println("Добро пожаловать в игру \"Угадай число\".");
         System.out.println("Играют два игрока.");
         System.out.println("Нужно вводить число в интревале от 1 до 100, кто первый угадал тот и выиграл. ");
 
         do {
-            System.out.println(player1.getFirstName() + " введите число : ");
-            firstPlayer = s.nextInt();
-            System.out.println(player2.getFirstName() + " введите число : ");
-            secondPlayer = s.nextInt();
+            System.out.println(firstPlayer.getFirstName() + " введите число : ");
+            firstPlayer.setNumberPlayer(s.nextInt());
 
-            if(firstPlayer == numberRandom) {
+            if(firstPlayer.getNumberPlayer() == numberRandom) {
                 System.out.println("Поздравляем!!!Победил первый игрок!!! Это было число  - "+ numberRandom);
                 break;
             }
-            if(secondPlayer == numberRandom) {
+            if(secondPlayer.getNumberPlayer() == numberRandom) {
                 System.out.println("Поздравляем!!!Победил второй игрок!!! Это было число  - "+ numberRandom);
                 break;
             } else {
-                System.out.println("Пока никто не угадал :(  Попробуйте еще.\n");
+                System.out.println("не угадал :(  Попробуйте еще.\n");
                 System.out.println("Подсказка : ");
-                if(firstPlayer < numberRandom) {
+                if(firstPlayer.getNumberPlayer() < numberRandom) {
                     System.out.println("Число первого игрока меньше искомого");
+                    System.out.println(secondPlayer.getFirstName() + " введите число : ");
+                    secondPlayer.setNumberPlayer(s.nextInt());
+
                 }
-                if(firstPlayer > numberRandom) {
+                if(firstPlayer.getNumberPlayer() > numberRandom) {
                     System.out.println("Число первого игрока больше искомого");
+                    System.out.println();
+                    System.out.println(secondPlayer.getFirstName() + " введите число : ");
+                    secondPlayer.setNumberPlayer(s.nextInt());
+                    System.out.println();
+                    System.out.println(secondPlayer.getFirstName() + " введите число : ");
+                    secondPlayer.setNumberPlayer(s.nextInt());
                 }
-                if (secondPlayer < numberRandom) {
+                if (secondPlayer.getNumberPlayer() < numberRandom) {
                     System.out.println("Число второго игрока меньше искомого\n");
+                    System.out.println();
+                    System.out.println(firstPlayer.getFirstName() + " введите число : ");
+                    firstPlayer.setNumberPlayer(s.nextInt());
+
                 }
-                if (secondPlayer > numberRandom){
+                if (secondPlayer.getNumberPlayer() > numberRandom){
                     System.out.println("Число второго игрока больше искомого\n");
+                    System.out.println();
+                    System.out.println(secondPlayer.getFirstName() + " введите число : ");
+                    firstPlayer.setNumberPlayer(s.nextInt());
                 }
             }
         } while (true);
