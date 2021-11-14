@@ -2,7 +2,7 @@ package lessons2;
 
 public class Player {
     private String firstName;
-    private int numberPlayer;
+    private int number;
 
     public Player(String name) {
         firstName = name;
@@ -12,11 +12,11 @@ public class Player {
         return firstName;
     }
 
-    public int getNumberPlayer() {
-        return numberPlayer;
+    public int getNumber() {
+        return number;
     }
 
-    public void setNumberPlayer(int numberPlayer) {
-        this.numberPlayer = numberPlayer;
+    public void setNumber(int number) {
+        this.number = number;
     }
 }
