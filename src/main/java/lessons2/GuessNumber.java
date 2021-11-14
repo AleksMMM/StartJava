@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GuessNumber {
     Player firstPlayer;
     Player secondPlayer;
-    static int numberRandom;
+    private int numberRandom;
 
     public GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
