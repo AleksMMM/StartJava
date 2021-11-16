@@ -3,15 +3,27 @@ package lessons2;
 import java.util.Scanner;
 
 public class GuessNumberTest {
+    Player firstPlayer;
+    Player secondPlayer;
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("введите имена игроков");
-        Player firstPlayer = new Player(scanner.nextLine());
-        Player secondPlayer = new Player(scanner.nextLine());
-        GuessNumber guessNumber = new GuessNumber(firstPlayer, secondPlayer);
-        guessNumber.play(firstPlayer, secondPlayer);
-        continueGame(firstPlayer, secondPlayer);
+        Player playerFirst = new Player(scanner.nextLine());
+        Player playerSecond = new Player(scanner.nextLine());
+        GuessNumber guessNumber = new GuessNumber(playerFirst, playerSecond);
+        guessNumber.play();
+        String answer = "";
+        do {
+            System.out.println("Хотите продолжить игру? [yes/no]:");
+            answer = scanner.nextLine();
+            if (answer.equals("yes")) {
+                guessNumber.play();
+            }
+        } while (!answer.equals("no"));
+
+    }
+
 
     }
 
@@ -19,12 +31,15 @@ public class GuessNumberTest {
         String answer = "";
         do {
         System.out.println("Хотите продолжить игру? [yes/no]:");
-            answer = new Scanner(System.in).nextLine();
+        answer = new Scanner(System.in).nextLine();
             if (answer.equals("yes")) {
-              new GuessNumber().play(player1, player2);
+                guessNumber.play();
             } else if (answer.equals("no")) {
                 break;
             }
         } while (!answer.equals("yes") || !answer.equals("no"));
+
     }
+
 }
+
