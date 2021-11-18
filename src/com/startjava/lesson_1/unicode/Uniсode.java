@@ -1,4 +1,4 @@
-package lessons1;
+package com.startjava.lesson_1.unicode;
 
 public class Uniсode {
 

@@ -1,4 +1,4 @@
-package lessons2;
+package com.startjava.lesson_2_3.game;
 
 import java.util.Scanner;
 
@@ -11,16 +11,13 @@ public class GuessNumberTest {
         Player playerSecond = new Player(scanner.nextLine());
         GuessNumber guessNumber = new GuessNumber(playerFirst, playerSecond);
         guessNumber.play();
-        String answer = "";
+        String answer = "yes";
         do {
-            System.out.println("Хотите продолжить игру? [yes/no]:");
-            answer = scanner.nextLine();
             if (answer.equals("yes")) {
                 guessNumber.play();
             }
+            System.out.println("Хотите продолжить игру? [yes/no]:");
+            answer = scanner.nextLine();
         } while (!answer.equals("no"));
-
     }
-
 }
-
