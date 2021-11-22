@@ -25,7 +25,7 @@ public class Calculator {
     }
 
     private double division(int firstNumber, int secondNumber) {
-        return firstNumber / secondNumber;
+        return Math.floorDiv(firstNumber, secondNumber) ;
     }
 
     private static int multiplication(int firstNumber, int secondNumber) {
@@ -36,11 +36,9 @@ public class Calculator {
         return firstNumber - secondNumber;
     }
 
-    private int exponentiation(int firstNumber, int step) {
-        for (int i = 0; i <= step; i++) {
-            firstNumber = firstNumber * firstNumber;
-        }
-        return firstNumber;
+    private double exponentiation(int firstNumber, int step) {
+       return Math.pow(firstNumber, step);
+
     }
 
     private int remainderDivision(int firstNumber, int secondNumber) {

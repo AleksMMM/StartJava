@@ -10,15 +10,14 @@ public class CalculatorTest {
         String yesOrNo = "";
 
         do {
-            System.out.println("Введите первое число:");
-            int firstNumber = scanner.nextInt();
+            System.out.println("Введите математическое выражение:");
+            String mathSign = scanner.nextLine();
+            String[] mathSimbol = mathSign.split(" ");
             scanner.nextLine();
-            System.out.println("Введите знак математической операции:");
-            char mathSign = scanner.next().charAt(0);
-            System.out.println("Введите второе число:");
-            int secondNumber =  scanner.nextInt();
-            scanner.nextLine();
-            System.out.println(calculator.calculate(mathSign, firstNumber, secondNumber));
+            int firstNumber = Integer.parseInt(mathSimbol[0]);
+            int secondNumber = Integer.parseInt(mathSimbol[2]);
+            char simbolCalculate = mathSimbol[1].charAt(1);
+            System.out.println(calculator.calculate(simbolCalculate, firstNumber, secondNumber));
             System.out.println("Хотите продолжить вычисления? [yes/no]:");
             yesOrNo = scanner.nextLine();
             while (!yesOrNo.equals("no") || !yesOrNo.equals("yes")) {
