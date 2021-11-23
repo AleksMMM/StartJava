@@ -25,6 +25,7 @@ public class GuessNumber {
             System.out.println(firstPlayer.getName() + " введите число : ");
             firstPlayer.setNumber(console.nextInt());
             firstPlayer.setNumberArray(firstPlayer.getNumber());
+            secondPlayer.setChansPlayer(firstPlayer.getChansPlayer() + 1);
 
             if (firstPlayer.getNumber() < numberRandom) {
                 System.out.println("Число первого игрока меньше искомого");
@@ -39,9 +40,9 @@ public class GuessNumber {
                 System.out.println(secondPlayer.getName() + " введите число : ");
                 secondPlayer.setNumber(console.nextInt());
                 secondPlayer.setNumberArray(secondPlayer.getNumber());
+                secondPlayer.setChansPlayer(secondPlayer.getChansPlayer() + 1);
             } else if (firstPlayer.getNumber() == numberRandom) {
                 System.out.println("Игрок " + firstPlayer.getName() + " угадал число " + numberRandom + " с " + firstPlayer.getChansPlayer() + " попытки");
-                System.out.println();
                 secondPlayer.arraysNew(secondPlayer);
                 firstPlayer.arraysNew(firstPlayer);
                 break;
@@ -55,15 +56,15 @@ public class GuessNumber {
             if (secondPlayer.getNumber() < numberRandom) {
                 System.out.println("Число второго игрока меньше искомого\n");
 
-
             } else if (secondPlayer.getNumber() > numberRandom) {
                 System.out.println("Число второго игрока больше искомого\n");
-
 
             }
 
             if (secondPlayer.getNumber() == numberRandom) {
                 System.out.println("Игрок " + secondPlayer.getName() + " угадал число " + numberRandom + " с " + secondPlayer.getChansPlayer() + " попытки");
+                secondPlayer.arraysNew(secondPlayer);
+                firstPlayer.arraysNew(firstPlayer);
                 break;
             } else if (secondPlayer.getChansPlayer() == 9) {
                 System.out.println("У " + secondPlayer.getName() + " закончились попытки");

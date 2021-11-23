@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private int number;
     private int[] numberArray;
-    private int chansPlayer = 0;
+    private int chansPlayer;
     Scanner console;
 
     public Player(String name) {
