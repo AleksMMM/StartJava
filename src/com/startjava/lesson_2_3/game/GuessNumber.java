@@ -1,5 +1,6 @@
 package com.startjava.lesson_2_3.game;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -13,69 +14,63 @@ public class GuessNumber {
         this.secondPlayer = secondPlayer;
     }
 
-    public void play() {
-        numberRandom = (int) (Math.random() * 100);
-        System.out.println(numberRandom);
-        System.out.println("Добро пожаловать в игру \"Угадай число\".");
-        System.out.println("Играют два игрока.");
-        System.out.println("Нужно вводить число в интревале от 1 до 100, кто первый угадал тот и выиграл. ");
-        System.out.println("у каждого игрока по 10 попыток");
-
+    public void startGame() {
+        System.out.println("Y каждого игрока по 10 попыток");
+        numberRandom = (int) (Math.random() * 101);
+        System.out.println("it is big Secret,random number = " + numberRandom + "\n");
+        firstPlayer.initNumbers();
+        secondPlayer.initNumbers();
         do {
-            System.out.println(firstPlayer.getName() + " введите число : ");
-            firstPlayer.setNumber(console.nextInt());
-            firstPlayer.setNumberArray(firstPlayer.getNumber());
-            secondPlayer.setChansPlayer(firstPlayer.getChansPlayer() + 1);
-
-            if (firstPlayer.getNumber() < numberRandom) {
-                System.out.println("Число первого игрока меньше искомого");
-                System.out.println(secondPlayer.getName() + " введите число : ");
-                secondPlayer.setNumber(console.nextInt());
-                secondPlayer.setNumberArray(secondPlayer.getNumber());
-                secondPlayer.setChansPlayer(secondPlayer.getChansPlayer() + 1);
-
-            } else if (firstPlayer.getNumber() > numberRandom) {
-                System.out.println("Число первого игрока больше искомого");
-                System.out.println();
-                System.out.println(secondPlayer.getName() + " введите число : ");
-                secondPlayer.setNumber(console.nextInt());
-                secondPlayer.setNumberArray(secondPlayer.getNumber());
-                secondPlayer.setChansPlayer(secondPlayer.getChansPlayer() + 1);
-            } else if (firstPlayer.getNumber() == numberRandom) {
-                System.out.println("Игрок " + firstPlayer.getName() + " угадал число " + numberRandom + " с " + firstPlayer.getChansPlayer() + " попытки");
-                secondPlayer.arraysNew(secondPlayer);
-                firstPlayer.arraysNew(firstPlayer);
+            if (makeMove(firstPlayer)) {
                 break;
-            } else if (firstPlayer.getChansPlayer() == 9) {
-                System.out.println("У " + firstPlayer.getName() + " закончились попытки");
-                System.out.println("не угадал :(  Попробуйте еще.\n");
-                secondPlayer.arraysNew(secondPlayer);
-                firstPlayer.arraysNew(firstPlayer);
             }
-
-            if (secondPlayer.getNumber() < numberRandom) {
-                System.out.println("Число второго игрока меньше искомого\n");
-
-            } else if (secondPlayer.getNumber() > numberRandom) {
-                System.out.println("Число второго игрока больше искомого\n");
-
-            }
-
-            if (secondPlayer.getNumber() == numberRandom) {
-                System.out.println("Игрок " + secondPlayer.getName() + " угадал число " + numberRandom + " с " + secondPlayer.getChansPlayer() + " попытки");
-                secondPlayer.arraysNew(secondPlayer);
-                firstPlayer.arraysNew(firstPlayer);
+            if (makeMove(secondPlayer)) {
                 break;
-            } else if (secondPlayer.getChansPlayer() == 9) {
-                System.out.println("У " + secondPlayer.getName() + " закончились попытки");
-                System.out.println("не угадал :(  Попробуйте еще.\n");
-                secondPlayer.arraysNew(secondPlayer);
-                firstPlayer.arraysNew(firstPlayer);
             }
-
-        } while (true);
+        } while (checkGameOver());
     }
 
+    private boolean makeMove(Player player) {
+        if (player.getAttempt() < 10) {
+            inputNumber(player);
+            if (compareNumbers(player.getNumbers(player.getAttempt() - 1))) {
+                System.out.println("Player  " + player.getName() + " You guessed number "
+                        + numberRandom + " from " + player.getAttempt() + " attempt");
+                System.out.println("PlayerAnswer:");
+                System.out.println(Arrays.toString(player.printPlayerAnswer(player.getAttempt())));
+                return true;
+            }
+        } else {
+            System.out.println("Player  " + player.getName() + " You lost(((");
+        }
+        return false;
+    }
 
+    private void inputNumber(Player player) {
+        System.out.println("Player  " + player.getName() + " please input number:");
+        player.setNumber(console.nextInt());
+    }
+
+    private boolean compareNumbers(int inputNumber) {
+        if (inputNumber > numberRandom) {
+            System.out.println(inputNumber + ": the hidden number is bigger(>) !");
+        } else if (inputNumber < numberRandom) {
+            System.out.println(inputNumber + ": the hidden number is less(<) !");
+        } else {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkGameOver() {
+        if (firstPlayer.getAttempt() >= 10 && secondPlayer.getAttempt() >= 10) {
+            System.out.println("Game over !!!  ");
+            System.out.println(Arrays.toString(firstPlayer.printPlayerAnswer(10)));
+            System.out.println("");
+            System.out.println(Arrays.toString(secondPlayer.printPlayerAnswer(10)));
+            System.out.println("");
+            return false;
+        }
+        return true;
+    }
 }
-

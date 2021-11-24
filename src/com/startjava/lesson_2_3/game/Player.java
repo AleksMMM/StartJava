@@ -1,58 +1,40 @@
 package com.startjava.lesson_2_3.game;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Player {
     private String name;
-    private int number;
-    private int[] numberArray;
-    private int chansPlayer;
-    Scanner console;
+    private int attempt;
+    private int[] numbers;
 
     public Player(String name) {
-       this.name = name;
-       this.numberArray = new int[10];
-    }
-
-    public void arraysNew(Player player) {
-        if (player.chansPlayer < 9) {
-            for (Integer in: player.numberArray) {
-                System.out.print(in + " ");
-            }
-        } else {
-            for (Integer in: player.numberArray) {
-                System.out.print(in + " ");
-            }
-        }
-        System.out.println();
+        this.name = name;
+        numbers = new int[10];
     }
 
     public String getName() {
         return name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getAttempt() {
+        return attempt;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public int getNumbers(int attempt) {
+        return numbers[attempt];
     }
 
-    public int[] getNumberArray() {
-        return numberArray;
+    public void setNumber(int answer) {
+        numbers[attempt] = answer;
+        attempt++;
     }
 
-    public void setNumberArray(int number) {
-        numberArray[chansPlayer] = number;
+    public void initNumbers() {
+        Arrays.fill(numbers, -1);
+        attempt = 0;
     }
 
-    public int getChansPlayer() {
-        return chansPlayer;
-    }
-
-    public void setChansPlayer(int chansPlayer) {
-        this.chansPlayer = chansPlayer;
+    public int[] printPlayerAnswer(int attempt) {
+        return Arrays.copyOf(numbers, attempt);
     }
 }
